@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
 
     const { createUser, updateUserProfile } = useAuth();
+    const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -18,6 +20,17 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => { })
                     .catch(error => console.log(error))
+
+
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `$User Login Successfully`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate('/');
+
             })
     };
 
