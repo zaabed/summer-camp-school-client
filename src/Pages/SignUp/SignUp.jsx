@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+// import { useState } from "react";
 
 
 const SignUp = () => {
@@ -19,13 +20,12 @@ const SignUp = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => { })
-                    .catch(error => console.log(error))
-
+                    .catch(error => console.log(error.message))
 
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: `$User Login Successfully`,
+                    title: `SignUp Successfully`,
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -79,7 +79,6 @@ const SignUp = () => {
                         <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4" type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" />
                         {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
                     </div>
-
 
                     <div className="text-center md:text-left">
                         <button className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider" type="submit">Sign Up</button>
