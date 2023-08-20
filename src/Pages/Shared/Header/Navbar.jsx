@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import logo from '../../../assets/images/logo.jpg';
+// import logo from '../../../assets/images/logo.jpg';
 
 
 const Navbar = () => {
@@ -32,7 +32,8 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <Link to='/'><img className=" rounded-sm h-12 w-24" src={logo} alt="" /></Link>
+                    {/* <Link to='/'><img className=" rounded-sm h-12 w-24" src={logo} alt="" /></Link> */}
+                    <Link to='/'><h3 className="text-3xl font-semibold">AxiomTune</h3></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

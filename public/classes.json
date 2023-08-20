@@ -1,0 +1,50 @@
+[
+    {
+        "_id": 1,
+        "image": "https://images.pexels.com/photos/16445710/pexels-photo-16445710/free-photo-of-man-holding-an-electric-guitar.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "name": "Guitar for Beginners",
+        "instructor": "John Smith",
+        "available_seats": 25,
+        "price": 199.99
+    },
+    {
+        "_id": 2,
+        "image": "https://images.pexels.com/photos/1293551/pexels-photo-1293551.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "name": "Piano Techniques for Modern Music",
+        "instructor": "Emily Johnson",
+        "available_seats": 15,
+        "price": 149.99
+    },
+    {
+        "_id": 3,
+        "image": "https://images.pexels.com/photos/7095506/pexels-photo-7095506.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "name": "Exploring Beethoven's Violin",
+        "instructor": "Alex Ramirez",
+        "available_seats": 10,
+        "price": 249.99
+    },
+    {
+        "_id": 4,
+        "image": "https://images.pexels.com/photos/1213918/pexels-photo-1213918.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "name": "Bass Guitar I: Introduction to the Bass Guitar & Staff",
+        "instructor": "Sarah Davis",
+        "available_seats": 20,
+        "price": 179.99
+    },
+    {
+        "_id": 5,
+        "image": "https://images.pexels.com/photos/1246437/pexels-photo-1246437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Exploring Piano Literature: The Piano Sonata",
+        "instructor": "Michael Thompson",
+        "available_seats": 12,
+        "price": 129.99
+    },
+    {
+        "_id": 6,
+        "image": "https://images.pexels.com/photos/6191910/pexels-photo-6191910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Rhythm & Movement in Beginning Piano Study",
+        "instructor": "David Martinez",
+        "available_seats": 18,
+        "price": 199.99
+    }
+]
