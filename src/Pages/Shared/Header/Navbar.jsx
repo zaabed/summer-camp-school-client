@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import { FaShoppingCart } from 'react-icons/fa';
 // import logo from '../../../assets/images/logo.jpg';
 
 
@@ -18,11 +19,22 @@ const Navbar = () => {
         < li className="font-bold"> <Link to='/instructors'>Instructors</Link></li>
         < li className="font-bold"> <Link to='/classes'>Classes</Link></li>
         < li className="font-bold"> <Link to='/aboutUs'>About Us</Link></li>
+        < li className="font-bold"> <Link to='/secret'>Secret</Link></li>
+        < li className="font-bold">
+
+            <Link to='/'>
+                <button className="btn">
+                    <FaShoppingCart className="text-2xl"></FaShoppingCart>
+                    <div className="badge badge-secondary">+0</div>
+                </button>
+            </Link>
+
+        </li>
     </>
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-emerald-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

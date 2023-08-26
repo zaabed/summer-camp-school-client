@@ -13,7 +13,7 @@ const ShowClasses = ({ cls }) => {
                 <h6 className="font-bold">available Seats : {available_seats}</h6>
                 <h6 className="font-bold">Price : ${price}</h6>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Enroll Now</button>
+                    <button className="btn btn-primary uppercase">Select</button>
                 </div>
             </div>
         </div>
