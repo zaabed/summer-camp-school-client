@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { FaShoppingCart } from 'react-icons/fa';
+import useCart from "../../../hooks/useCart";
 // import logo from '../../../assets/images/logo.jpg';
 
 
 const Navbar = () => {
 
     const { user, logOut } = useAuth();
+    const [cart] = useCart();
 
     const handleLogOut = () => {
         logOut()
@@ -20,21 +22,11 @@ const Navbar = () => {
         < li className="font-bold"> <Link to='/classes'>Classes</Link></li>
         < li className="font-bold"> <Link to='/aboutUs'>About Us</Link></li>
         < li className="font-bold"> <Link to='/secret'>Secret</Link></li>
-        < li className="font-bold">
-
-            <Link to='/'>
-                <button className="btn">
-                    <FaShoppingCart className="text-2xl"></FaShoppingCart>
-                    <div className="badge badge-secondary">+0</div>
-                </button>
-            </Link>
-
-        </li>
     </>
 
     return (
         <div>
-            <div className="navbar bg-emerald-100">
+            <div className="navbar bg-emerald-100 ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,12 +48,24 @@ const Navbar = () => {
                     {
                         user ?
                             <>
+
+                                <div className="mr-3">
+                                    <Link to='/dashboard'>
+                                        <button className="btn">
+                                            <FaShoppingCart className="text-2xl"></FaShoppingCart>
+                                            <div className="badge badge-secondary">{cart?.length || 0}</div>
+                                        </button>
+                                    </Link>
+                                </div>
+
                                 <div className="avatar">
                                     <div className="w-12 rounded-xl mr-3">
                                         <img src={user?.photoURL}></img>
                                     </div>
                                 </div>
+
                                 <button onClick={handleLogOut} className="btn btn-primary">Logout</button>
+
                             </>
                             :
                             <>

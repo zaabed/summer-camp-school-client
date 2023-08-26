@@ -1,30 +1,33 @@
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useCart from "../../hooks/useCart";
 
 
 const ShowCourses = ({ cls }) => {
 
     const { image, name, instructor, available_seats, price, _id } = cls;
     const { user } = useAuth();
+    const [, refetch] = useCart();
     const navigate = useNavigate();
     const location = useLocation();
 
     const handleAddToCart = cls => {
         console.log(cls);
         if (user && user.email) {
-            const orderCourseItem = { courseItemId: _id, available_seats, image, instructor, name, price, email: user.email };
+            const orderCourseCartItem = { courseItemId: _id, available_seats, image, instructor, name, price, email: user.email };
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(orderCourseItem)
+                body: JSON.stringify(orderCourseCartItem)
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
                     if (data.insertedId) {
+                        refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
