@@ -2,15 +2,48 @@ import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../../hooks/useCart";
 import useAuth from "../../../../hooks/useAuth";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const MyCart = () => {
 
-    const [cart] = useCart();
+    const [cart, refetch] = useCart();
     const { user } = useAuth();
+
+
+    //Find Total Cost
+
+    const totalPrice = cart.reduce((sum, course) => course.price + sum, 0);
+    const CoursePrice = parseFloat(totalPrice.toFixed(2));
 
     const handleDelete = (item) => {
         console.log('delete', item._id)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/carts/${item._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
 
     return (
@@ -24,7 +57,7 @@ const MyCart = () => {
 
             <div className="uppercase flex justify-evenly font-semibold mb-10">
                 <h3 className="text-3xl">Total Orders:{cart.length}</h3>
-                <h3 className="text-3xl">Total Price:</h3>
+                <h3 className="text-3xl">Total Price:{CoursePrice}</h3>
                 <Link to="/dashboard/payment">
                     <button className="btn btn-warning btn-sm">PAY</button>
                 </Link>
