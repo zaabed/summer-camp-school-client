@@ -56,10 +56,10 @@ const MyCart = () => {
             </div>
 
             <div className="uppercase flex justify-evenly font-semibold mb-10">
-                <h3 className="text-3xl">Total Orders:{cart.length}</h3>
-                <h3 className="text-3xl">Total Price:{CoursePrice}</h3>
+                <h3 className="text-3xl">Total Orders: {cart.length}</h3>
+                <h3 className="text-3xl">Total Price: ${CoursePrice}</h3>
                 <Link to="/dashboard/payment">
-                    <button className="btn btn-warning btn-sm">PAY</button>
+                    <button className="btn btn-warning btn-sm"> PAY</button>
                 </Link>
             </div>
 
