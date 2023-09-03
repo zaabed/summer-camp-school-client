@@ -1,10 +1,13 @@
 import { Link, Outlet } from "react-router-dom";
 import { FaHome } from 'react-icons/fa';
+// import useAdmin from "../hooks/useAdmin";
 
 
 const Dashboard = () => {
 
-    const isAdmin = true;
+    // const isAdmin = true;
+    const isInstructor = true;
+    // const [isAdmin] = useAdmin();
 
     return (
         <div className="drawer lg:drawer-open">
@@ -30,15 +33,30 @@ const Dashboard = () => {
                     <div className="flex flex-col w-full border-opacity-50 ">
                         <div className="grid gap-y-2 p-10 card bg-base-300 rounded-box place-items-center">
 
-                            {
+                            {/* {
                                 isAdmin ? <>
 
                                     <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/adminHome'>Admin Home</Link></li>
-                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/allUsers'>All Users</Link></li>
+                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/allUsers'>Manage Users</Link></li>
 
                                 </> : <>
 
-                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/myCart'>User Home</Link></li>
+                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/userHome'>User Home</Link></li>
+                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/myCart'> Selected Classes</Link></li>
+
+                                </>
+                            } */}
+
+                            {
+                                isInstructor ? <>
+
+                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/instructorHome'>Instructor Home</Link></li>
+                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/addClass'>Add a Class</Link></li>
+                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/myClasses'>My Classes</Link></li>
+
+                                </> : <>
+
+                                    <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/userHome'>User Home</Link></li>
                                     <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/myCart'> Selected Classes</Link></li>
 
                                 </>

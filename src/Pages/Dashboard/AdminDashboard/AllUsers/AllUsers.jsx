@@ -1,13 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 const AllUsers = () => {
 
+    const [axiosSecure] = useAxiosSecure();
+
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
-        return res.json();
+        const res = await axiosSecure.get('/users')
+        return res.data;
     })
 
     const handleMakeAdmin = user => {
@@ -73,7 +76,8 @@ const AllUsers = () => {
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <th>Role1</th>
+                            <th>Role2</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -92,6 +96,13 @@ const AllUsers = () => {
                                     {
                                         user.role === 'admin' ? <b className="bg-yellow-400 p-3 rounded-md">admin</b> :
                                             <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-green-600 text-white"><FaUserShield></FaUserShield>
+                                            </button>
+                                    }
+                                </td>
+                                <td>
+                                    {
+                                        user.role === 'instructor' ? <b className="bg-yellow-400 p-3 rounded-md">instructor</b> :
+                                            <button className="btn btn-ghost bg-green-600 text-white"><FaUserShield></FaUserShield>
                                             </button>
                                     }
                                 </td>

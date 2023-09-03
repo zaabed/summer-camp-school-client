@@ -12,6 +12,10 @@ import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/StudentDashboard/MyCart/MyCart";
 import AllUsers from "../Pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
 import AdminHome from "../Pages/Dashboard/AdminDashboard/AdminHome/AdminHome";
+import UserHome from "../Pages/Dashboard/StudentDashboard/UserHome/UserHome";
+import InstructorHome from "../Pages/Dashboard/InstructorDashboard/InstructorHome/InstructorHome";
+import AddClass from "../Pages/Dashboard/InstructorDashboard/AddClass/AddClass";
+import MyClasses from "../Pages/Dashboard/InstructorDashboard/MyClasses/MyClasses";
 
 export const router = createBrowserRouter([
     {
@@ -55,11 +59,6 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
-            //Student Route
-            {
-                path: 'myCart',
-                element: <MyCart></MyCart>
-            },
             //Admin Route
             {
                 path: 'adminHome',
@@ -69,6 +68,29 @@ export const router = createBrowserRouter([
                 path: 'allUsers',
                 element: <AllUsers></AllUsers>
             },
+            //Instructor Route
+            {
+                path: 'instructorHome',
+                element: <InstructorHome></InstructorHome>
+            },
+            {
+                path: 'addClass',
+                element: <AddClass></AddClass>
+            },
+            {
+                path: 'myClasses',
+                element: <MyClasses></MyClasses>
+            },
+            //Student Route
+            {
+                path: 'userHome',
+                element: <UserHome></UserHome>
+            },
+            {
+                path: 'myCart',
+                element: <MyCart></MyCart>
+            },
+
         ]
     }
 ])

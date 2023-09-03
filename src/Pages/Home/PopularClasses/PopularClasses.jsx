@@ -1,18 +1,27 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ShowClasses from "./ShowClasses";
 
 
 const PopularClasses = () => {
 
-    const [classes, setClasses] = useState();
+    // const [classes, setClasses] = useState();
 
-    useEffect(() => {
-        fetch('http://localhost:5000/classes')
-            .then(res => res.json())
-            .then(data => {
-                setClasses(data);
-            })
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/classes')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setClasses(data);
+    //         })
+    // }, [])
+
+    const [axiosSecure] = useAxiosSecure();
+
+    const { data: classes = [] } = useQuery(['classes'], async () => {
+        const res = await axiosSecure.get('/classes')
+        return res.data;
+    })
 
     return (
         <div className="mt-10">
