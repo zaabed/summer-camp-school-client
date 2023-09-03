@@ -19,14 +19,20 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `Login Successfully`,
-                    showConfirmButton: false,
-                    timer: 1500
+
+                const saveUser = { name: loggedUser.displayName, email: loggedUser.email };
+
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
                 })
-                navigate(from, { replace: true });
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(error => console.log(error));
     }
@@ -34,16 +40,16 @@ const Login = () => {
     const handleGithubLogin = () => {
         githubSignIn()
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                const loggedUser = result.user;
+                console.log(loggedUser);
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: `Login Successfully`,
+                    title: `Github Login Successfully`,
                     showConfirmButton: false,
                     timer: 1500
                 })
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error));
     }
