@@ -9,7 +9,6 @@ const useClasses = () => {
     const { data: classes = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['menu'],
         queryFn: async () => {
-            // const res = await axiosSecure.get('http://localhost:5000/classes');
             const res = await axiosSecure.get('/classes');
             return res.data;
         }

@@ -1,10 +1,16 @@
-import useInstructors from "../../hooks/useInstructors";
+import { useQuery } from "@tanstack/react-query";
 import ShowInstructors from "./ShowInstructors";
 
 
 const Instructors = () => {
 
-    const [instructors] = useInstructors();
+    const { data: instructors = [] } = useQuery({
+        queryKey: ['teachers'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/teachers');
+            return res.json();
+        }
+    })
 
     return (
         <div className="mt-20">

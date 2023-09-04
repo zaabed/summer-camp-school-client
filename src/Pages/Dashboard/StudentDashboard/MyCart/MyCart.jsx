@@ -3,12 +3,14 @@ import useCart from "../../../../hooks/useCart";
 import useAuth from "../../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAdmin from "../../../../hooks/useAdmin";
 
 
 const MyCart = () => {
 
     const [cart, refetch] = useCart();
     const { user } = useAuth();
+    const [isAdmin] = useAdmin();
 
 
     //Find Total Cost
@@ -59,7 +61,7 @@ const MyCart = () => {
                 <h3 className="text-3xl">Total Orders: {cart.length}</h3>
                 <h3 className="text-3xl">Total Price: ${CoursePrice}</h3>
                 <Link to="/dashboard/payment">
-                    <button className="btn btn-warning btn-sm"> PAY</button>
+                    <button disabled={isAdmin} className="btn btn-warning btn-sm"> PAY</button>
                 </Link>
             </div>
 
