@@ -6,7 +6,7 @@ import useCart from "../../hooks/useCart";
 
 const ShowCourses = ({ cls }) => {
 
-    const { image, name, instructor, available_seats, price, _id } = cls;
+    const { image, name, instructor, seats, price, _id } = cls;
     const { user } = useAuth();
     const [, refetch] = useCart();
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const ShowCourses = ({ cls }) => {
     const handleAddToCart = cls => {
         console.log(cls);
         if (user && user.email) {
-            const orderCourseCartItem = { courseItemId: _id, available_seats, image, instructor, name, price, email: user.email };
+            const orderCourseCartItem = { courseItemId: _id, seats, image, instructor, name, price, email: user.email };
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
@@ -60,7 +60,7 @@ const ShowCourses = ({ cls }) => {
             <div className="card-body">
                 <h2 className="card-title font-bold text-2xl">{name}</h2>
                 <h6 className="font-bold ">Instructor: {instructor}</h6>
-                <h6 className="font-bold">available Seats : {available_seats}</h6>
+                <h6 className="font-bold">available Seats : {seats}</h6>
                 <h6 className="font-bold">Price : ${price}</h6>
                 <div className="card-actions justify-end">
                     <button onClick={() => handleAddToCart(cls)} className="btn btn-primary uppercase">Select</button>
