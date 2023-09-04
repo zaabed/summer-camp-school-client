@@ -46,28 +46,26 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ?
+                        user ? <>
 
-                            <>
+                            <div className="mr-3">
+                                <Link to='/dashboard/myCart'>
+                                    <button className="btn">
+                                        <FaShoppingCart className="text-2xl"></FaShoppingCart>
+                                        <div className="badge badge-secondary">{'+' + cart?.length || 0}</div>
+                                    </button>
+                                </Link>
+                            </div>
 
-                                <div className="mr-3">
-                                    <Link to='/dashboard/myCart'>
-                                        <button className="btn">
-                                            <FaShoppingCart className="text-2xl"></FaShoppingCart>
-                                            <div className="badge badge-secondary">{'+' + cart?.length || 0}</div>
-                                        </button>
-                                    </Link>
+                            <div className="avatar">
+                                <div className="w-12 rounded-xl mr-3">
+                                    <img src={user?.photoURL}></img>
                                 </div>
+                            </div>
 
-                                <div className="avatar">
-                                    <div className="w-12 rounded-xl mr-3">
-                                        <img src={user?.photoURL}></img>
-                                    </div>
-                                </div>
+                            <button onClick={handleLogOut} className="btn btn-primary">Logout</button>
 
-                                <button onClick={handleLogOut} className="btn btn-primary">Logout</button>
-
-                            </> :
+                        </> :
                             <>
                                 <Link to='/login'><button className="btn btn-primary">Login</button>
                                 </Link>

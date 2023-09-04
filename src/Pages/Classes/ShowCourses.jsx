@@ -2,7 +2,6 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
-import useAdmin from "../../hooks/useAdmin";
 
 
 const ShowCourses = ({ cls }) => {
@@ -12,8 +11,6 @@ const ShowCourses = ({ cls }) => {
     const [, refetch] = useCart();
     const navigate = useNavigate();
     const location = useLocation();
-
-    const [isAdmin] = useAdmin(); //button disabled functionality add when an admin login
 
     const handleAddToCart = cls => {
         console.log(cls);
@@ -66,7 +63,7 @@ const ShowCourses = ({ cls }) => {
                 <h6 className="font-bold">available Seats : {available_seats}</h6>
                 <h6 className="font-bold">Price : ${price}</h6>
                 <div className="card-actions justify-end">
-                    <button onClick={() => handleAddToCart(cls)} disabled={isAdmin} className="btn btn-primary uppercase">Select</button>
+                    <button onClick={() => handleAddToCart(cls)} className="btn btn-primary uppercase">Select</button>
                 </div>
             </div>
         </div>

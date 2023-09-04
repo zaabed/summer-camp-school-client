@@ -17,6 +17,7 @@ import InstructorHome from "../Pages/Dashboard/InstructorDashboard/InstructorHom
 import AddClass from "../Pages/Dashboard/InstructorDashboard/AddClass/AddClass";
 import MyClasses from "../Pages/Dashboard/InstructorDashboard/MyClasses/MyClasses";
 import InstructorRoute from "./InstructorRoute";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -63,11 +64,11 @@ export const router = createBrowserRouter([
             //Admin Route
             {
                 path: 'adminHome',
-                element: <AdminHome></AdminHome>
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: 'allUsers',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             //Instructor Route
             {
@@ -76,11 +77,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'addClass',
-                element: <AddClass></AddClass>
+                element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
             },
             {
                 path: 'myClasses',
-                element: <MyClasses></MyClasses>
+                element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             },
             //Student Route
             {
