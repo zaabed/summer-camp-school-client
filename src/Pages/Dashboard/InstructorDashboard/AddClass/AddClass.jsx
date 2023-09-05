@@ -27,10 +27,10 @@ const AddClass = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
-                    const { className, instructorName, instructorEmail, availableSeats, price } = data;
-                    const newItem = { name: className, instructor: instructorName, email: instructorEmail, seats: parseFloat(availableSeats), price: parseFloat(price), image: imgURL };
+                    const { className, instructorName, instructorEmail, availableSeats, price, status } = data;
+                    const newItem = { name: className, instructor: instructorName, email: instructorEmail, seats: parseFloat(availableSeats), price: parseFloat(price), status: status, image: imgURL };
                     console.log(newItem);
-                    axiosSecure.post('/classes', newItem)
+                    axiosSecure.post('/instructorCourses', newItem)
                         .then(data => {
                             if (data.data.insertedId) {
                                 reset();
@@ -59,7 +59,7 @@ const AddClass = () => {
                             <span className="label-text font-semibold">Class Name*</span>
                         </label>
                         <input type="text" placeholder="Class Name"
-                            {...register("className", { required: true, maxLength: 120 })}
+                            {...register("className", { required: true })}
                             className="input input-bordered w-full " />
                     </div>
 
@@ -100,6 +100,16 @@ const AddClass = () => {
                                 {...register("price", { required: true })}
                                 className="input input-bordered w-full " />
                         </div>
+
+                        <div className="form-control w-full ml-4">
+                            <label className="label">
+                                <span className="label-text font-semibold">Status*</span>
+                            </label>
+                            <input defaultValue={'Pending'} type="text" placeholder="Status"
+                                {...register("status", { required: true })}
+                                className="input input-bordered w-full " />
+                        </div>
+
                     </div>
 
                     <div className="form-control w-full ">

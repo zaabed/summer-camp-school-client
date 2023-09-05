@@ -29,7 +29,7 @@ const Dashboard = () => {
                     {/* Sidebar content here */}
 
                     <div className="mb-20">
-                        <Link className="text-center" to='/'><span className="font-bold text-4xl">AxiomTune</span> <span className="font-bold">School</span></Link>
+                        <Link className="text-center" to='/'><span className="font-bold text-4xl">AxiomTune.</span> <span className="font-bold">School</span></Link>
                     </div>
 
                     <div className="flex flex-col w-full border-opacity-50 ">

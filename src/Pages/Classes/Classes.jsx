@@ -1,4 +1,3 @@
-// import useClasses from "../../hooks/useClasses";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import ShowCourses from "./ShowCourses";
@@ -6,12 +5,10 @@ import ShowCourses from "./ShowCourses";
 
 const Classes = () => {
 
-    // const [classes] = useClasses();
-
     const [axiosSecure] = useAxiosSecure();
 
-    const { data: classes = [] } = useQuery(['classes'], async () => {
-        const res = await axiosSecure.get('/classes')
+    const { data: classes = [] } = useQuery(['instructorCourses'], async () => {
+        const res = await axiosSecure.get('/instructorCourses')
         return res.data;
     })
 

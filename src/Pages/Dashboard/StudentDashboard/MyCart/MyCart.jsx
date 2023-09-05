@@ -97,7 +97,7 @@ const MyCart = () => {
                                 <p className="font-bold">{item.name}</p>
                             </td>
                             <td><p className="font-bold">{item.instructor}</p></td>
-                            <td><p className="font-bold">{item.available_seats}</p></td>
+                            <td><p className="font-bold">{item.seats}</p></td>
                             <td><p className="font-bold">${item.price}</p></td>
                             <td>
                                 <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600 text-white"><FaTrashAlt></FaTrashAlt></button>
