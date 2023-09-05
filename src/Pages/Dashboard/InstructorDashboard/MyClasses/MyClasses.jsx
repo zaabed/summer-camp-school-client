@@ -2,22 +2,34 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAuth from "../../../../hooks/useAuth";
 
 
 const MyClasses = () => {
 
+    // const [axiosSecure] = useAxiosSecure();
+
+    // const { data: instructorClasses = [] } = useQuery(['instructorCourses'], async () => {
+    //     const res = await axiosSecure.get('/instructorCourses');
+    //     return res.data;
+    // })
+
+    const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 
-    const { data: instructorClasses = [] } = useQuery(['instructorCourses'], async () => {
-        const res = await axiosSecure.get('/instructorCourses');
-        return res.data;
+    const { data: instructorClasses = [] } = useQuery({
+        queryKey: ['instructorCourses', user?.email],
+        queryFn: async () => {
+            const res = await axiosSecure(`/instructorCourses?email=${user?.email}`);
+            return res.data;
+        }
     })
-
 
     return (
         <div className="w-full p-10">
 
-            <h1 className="text-3xl font-semibold">Show All Classes</h1>
+            <h1 className="text-3xl font-semibold">Show My Classes</h1>
+            <p>Name:{user?.displayName}, Email:{user?.email}</p>
 
             <div>
                 <table className="table">

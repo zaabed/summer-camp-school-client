@@ -57,9 +57,11 @@ const Navbar = () => {
                                 </Link>
                             </div>
 
-                            <div className="avatar">
-                                <div className="w-12 rounded-xl mr-3">
-                                    <img src={user?.photoURL}></img>
+                            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                <div className="avatar">
+                                    <div className="w-12 rounded-xl mr-3">
+                                        <img src={user?.photoURL}></img>
+                                    </div>
                                 </div>
                             </div>
 

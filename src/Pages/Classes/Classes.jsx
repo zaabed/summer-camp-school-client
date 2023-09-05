@@ -8,7 +8,7 @@ const Classes = () => {
     const [axiosSecure] = useAxiosSecure();
 
     const { data: classes = [] } = useQuery(['instructorCourses'], async () => {
-        const res = await axiosSecure.get('/instructorCourses')
+        const res = await axiosSecure.get('/instructorCourses');
         return res.data;
     })
 
