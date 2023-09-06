@@ -85,7 +85,7 @@ const AllUsers = () => {
     }
 
     return (
-        <div className="">
+        <div className="w-full p-10">
             <h1>Total Users: {users.length}</h1>
 
             <div className="overflow-x-auto ">
@@ -96,8 +96,8 @@ const AllUsers = () => {
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role1</th>
-                            <th>Role2</th>
+                            <th>Admin</th>
+                            <th>Instructor</th>
                             <th>Action</th>
                         </tr>
                     </thead>

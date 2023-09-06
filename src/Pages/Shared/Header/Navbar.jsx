@@ -48,6 +48,15 @@ const Navbar = () => {
                     {
                         user ? <>
 
+
+                            <div className="mr-3">
+                                <Link to='/dashboard'>
+                                    <button className="btn">
+                                        <span className="font-bold"> Dashboard</span>
+                                    </button>
+                                </Link>
+                            </div>
+
                             <div className="mr-3">
                                 <Link to='/dashboard/myCart'>
                                     <button className="btn">
@@ -56,6 +65,8 @@ const Navbar = () => {
                                     </button>
                                 </Link>
                             </div>
+
+
 
                             <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
                                 <div className="avatar">

@@ -29,7 +29,7 @@ const MyClasses = () => {
         <div className="w-full p-10">
 
             <h1 className="text-3xl font-semibold">Show My Classes</h1>
-            <p>Name:{user?.displayName}, Email:{user?.email}</p>
+            {/* <p>Name:{user?.displayName}, Email:{user?.email}</p> */}
 
             <div>
                 <table className="table">
@@ -80,3 +80,5 @@ const MyClasses = () => {
 };
 
 export default MyClasses;
+
+

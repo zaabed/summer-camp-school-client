@@ -1,6 +1,6 @@
 import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../../hooks/useCart";
-import useAuth from "../../../../hooks/useAuth";
+// import useAuth from "../../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const MyCart = () => {
 
     const [cart, refetch] = useCart();
-    const { user } = useAuth();
+    // const { user } = useAuth();
 
 
     //Find Total Cost
@@ -47,12 +47,12 @@ const MyCart = () => {
     }
 
     return (
-        <div>
+        <div className="w-full p-10">
 
             <h1 className="text-3xl font-bold text-center uppercase mt-2">Here All Selected Courses</h1>
 
             <div className="mt-10 mb-10">
-                <h3 className="text2xl text-center">Name:{user?.displayName} Email:{user?.email}</h3>
+                {/* <h3 className="text2xl text-center">Name:{user?.displayName} Email:{user?.email}</h3> */}
             </div>
 
             <div className="uppercase flex justify-evenly font-semibold mb-10">
