@@ -8,7 +8,6 @@ import useAuth from "../hooks/useAuth";
 const Dashboard = () => {
 
     const { user } = useAuth();
-    console.log(user);
 
     // const isAdmin = true;
     const [isAdmin] = useAdmin();

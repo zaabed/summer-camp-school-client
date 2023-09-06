@@ -12,7 +12,7 @@ const ManageClasses = () => {
         return res.data;
     })
 
-    // { allClasses.map(a => console.log(a)) }
+    { allClasses.map(a => console.log(a)) }
 
     return (
         <div className="w-full P-10">
@@ -64,8 +64,15 @@ const ManageClasses = () => {
                             </td>
                             <td>
                                 <div className="btn-group">
+
+
+
                                     <button className="btn btn-sm bg-yellow-600 text-white">APPROVE</button>
-                                    <button className="btn btn-sm bg-yellow-600 text-white">DENY</button>
+                                    <button className="btn btn-sm bg-yellow-600 
+                                    text-white">DENY</button>
+
+
+
                                 </div>
                             </td>
 

@@ -7,13 +7,6 @@ import useAuth from "../../../../hooks/useAuth";
 
 const MyClasses = () => {
 
-    // const [axiosSecure] = useAxiosSecure();
-
-    // const { data: instructorClasses = [] } = useQuery(['instructorCourses'], async () => {
-    //     const res = await axiosSecure.get('/instructorCourses');
-    //     return res.data;
-    // })
-
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 
@@ -29,7 +22,6 @@ const MyClasses = () => {
         <div className="w-full p-10">
 
             <h1 className="text-3xl font-semibold">Show My Classes</h1>
-            {/* <p>Name:{user?.displayName}, Email:{user?.email}</p> */}
 
             <div>
                 <table className="table">
@@ -67,7 +59,7 @@ const MyClasses = () => {
                             </td>
                             <td><p className="font-bold">0 TODO</p></td>
                             <td><button className="btn btn-sm bg-yellow-600 text-white">SEE FEEDBACK</button></td>
-                            <td><Link to='/dashboard/updateClass'><button className="btn btn-ghost bg-yellow-600 text-white"><FaEdit></FaEdit></button></Link></td>
+                            <td><Link to={`/dashboard/updateClass/${item._id}`}><button className="btn btn-ghost bg-yellow-600 text-white"><FaEdit></FaEdit></button></Link></td>
 
                         </tr>)}
 

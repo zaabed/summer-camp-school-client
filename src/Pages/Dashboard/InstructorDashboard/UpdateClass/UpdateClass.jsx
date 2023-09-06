@@ -1,14 +1,56 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+
+const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
 
 const UpdateClass = () => {
 
+    const updateClass = useLoaderData();
+    // console.log(updateClass);
+    const { _id, name, price, seats } = updateClass;
+
+    const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit } = useForm();
     const { user } = useAuth();
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
     const onSubmit = data => {
         console.log(data);
+
+        const formData = new FormData;
+        formData.append('image', data.image[0]);
+
+        fetch(img_hosting_url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url;
+                    // const { className, price, availableSeats } = data;
+                    const { name, price, seats } = data;
+                    const updateClass = { name: name, seats: parseFloat(seats), price: parseFloat(price), image: imgURL };
+                    console.log(updateClass);
+                    axiosSecure.put(`/instructorCourses/${_id}`, updateClass)
+                        .then(data => {
+                            if (data.data.modifiedCount > 0) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'class Updated Successfully',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            }
+                        })
+                }
+            })
+
     }
 
     return (
@@ -21,7 +63,7 @@ const UpdateClass = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Class Name*</span>
                         </label>
-                        <input type="text" placeholder="Class Name"
+                        <input defaultValue={name} type="text" placeholder="Class Name"
                             {...register("className", { required: true })}
                             className="input input-bordered w-full " />
                     </div>
@@ -50,7 +92,7 @@ const UpdateClass = () => {
                             <label className="label">
                                 <span className="label-text font-semibold">Available seats*</span>
                             </label>
-                            <input type="text" placeholder="availableSeats"
+                            <input defaultValue={seats} type="text" placeholder="availableSeats"
                                 {...register("availableSeats", { required: true })}
                                 className="input input-bordered w-full " />
                         </div>
@@ -59,7 +101,7 @@ const UpdateClass = () => {
                             <label className="label">
                                 <span className="label-text font-semibold">Price*</span>
                             </label>
-                            <input type="text" placeholder="price"
+                            <input defaultValue={price} type="text" placeholder="price"
                                 {...register("price", { required: true })}
                                 className="input input-bordered w-full " />
                         </div>

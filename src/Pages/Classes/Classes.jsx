@@ -5,10 +5,18 @@ import ShowCourses from "./ShowCourses";
 
 const Classes = () => {
 
+    //TODO
+    // const [axiosSecure] = useAxiosSecure();
+
+    // const { data: classes = [] } = useQuery(['classes'], async () => {
+    //     const res = await axiosSecure.get('/classes');
+    //     return res.data;
+    // })
+
     const [axiosSecure] = useAxiosSecure();
 
-    const { data: classes = [] } = useQuery(['classes'], async () => {
-        const res = await axiosSecure.get('/classes');
+    const { data: classes = [] } = useQuery(['instructorCourses'], async () => {
+        const res = await axiosSecure.get('/instructorCourses');
         return res.data;
     })
 
