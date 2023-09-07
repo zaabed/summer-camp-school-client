@@ -12,8 +12,6 @@ const ManageClasses = () => {
         return res.data;
     })
 
-    { allClasses.map(a => console.log(a)) }
-
     return (
         <div className="w-full P-10">
 
@@ -59,7 +57,7 @@ const ManageClasses = () => {
                             <td>{item.price}</td>
                             <td>
                                 <div className="btn-group">
-                                    <button className="btn btn-sm bg-yellow-600 text-white">{item.status}</button>
+                                    <button className="btn btn-sm bg-pink-500 text-white">{item.status}</button>
                                 </div>
                             </td>
                             <td>
@@ -67,9 +65,13 @@ const ManageClasses = () => {
 
 
 
-                                    <button className="btn btn-sm bg-yellow-600 text-white">APPROVE</button>
-                                    <button className="btn btn-sm bg-yellow-600 
-                                    text-white">DENY</button>
+                                    <Link to={`/dashboard/updateClassStatus/${item._id}`}>
+                                        <button className="btn btn-sm bg-yellow-600 text-white">APPROVE</button>
+                                    </Link>
+
+                                    <Link to={`/dashboard/updateClassStatus/${item._id}`}>
+                                        <button className="btn btn-sm bg-yellow-600 text-white">DENY</button>
+                                    </Link>
 
 
 
