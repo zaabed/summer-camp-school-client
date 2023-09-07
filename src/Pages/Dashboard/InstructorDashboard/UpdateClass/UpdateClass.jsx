@@ -64,7 +64,7 @@ const UpdateClass = () => {
                             <span className="label-text font-semibold">Class Name*</span>
                         </label>
                         <input defaultValue={name} type="text" placeholder="Class Name"
-                            {...register("className", { required: true })}
+                            {...register("name", { required: true })}
                             className="input input-bordered w-full " />
                     </div>
 
@@ -93,7 +93,7 @@ const UpdateClass = () => {
                                 <span className="label-text font-semibold">Available seats*</span>
                             </label>
                             <input defaultValue={seats} type="text" placeholder="availableSeats"
-                                {...register("availableSeats", { required: true })}
+                                {...register("seats", { required: true })}
                                 className="input input-bordered w-full " />
                         </div>
 

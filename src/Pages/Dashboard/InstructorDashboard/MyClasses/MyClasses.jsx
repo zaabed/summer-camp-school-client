@@ -11,9 +11,9 @@ const MyClasses = () => {
     const [axiosSecure] = useAxiosSecure();
 
     const { data: instructorClasses = [] } = useQuery({
-        queryKey: ['instructorCourses', user?.email],
+        queryKey: ['myCourses', user?.email],
         queryFn: async () => {
-            const res = await axiosSecure(`/instructorCourses?email=${user?.email}`);
+            const res = await axiosSecure(`/myCourses?email=${user?.email}`);
             return res.data;
         }
     })
