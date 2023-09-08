@@ -15,8 +15,8 @@ const Classes = () => {
 
     const [axiosSecure] = useAxiosSecure();
 
-    const { data: classes = [] } = useQuery(['instructorCourses'], async () => {
-        const res = await axiosSecure.get('/instructorCourses');
+    const { data: classes = [] } = useQuery(['approvedCourses'], async () => {
+        const res = await axiosSecure.get('/approvedCourses');
         return res.data;
     })
 

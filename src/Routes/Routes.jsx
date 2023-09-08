@@ -21,7 +21,9 @@ import AdminRoute from "./AdminRoute";
 import UpdateClass from "../Pages/Dashboard/InstructorDashboard/UpdateClass/UpdateClass";
 import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses/ManageClasses";
 import AdminFeedback from "../Pages/Dashboard/AdminDashboard/AdminFeedback/AdminFeedback";
-import UpdateCourseStatus from "../Pages/Dashboard/InstructorDashboard/UpdateCourseStatus/UpdateCourseStatus";
+import UpdateCourseStatus from "../Pages/Dashboard/AdminDashboard/UpdateCourseStatus/UpdateCourseStatus";
+import DenyCourseStatus from "../Pages/Dashboard/AdminDashboard/UpdateCourseStatus/DenyCourseStatus";
+// import UpdateCourseStatus from "../Pages/Dashboard/InstructorDashboard/UpdateCourseStatus/UpdateCourseStatus";
 
 export const router = createBrowserRouter([
     {
@@ -85,6 +87,11 @@ export const router = createBrowserRouter([
             {
                 path: 'updateClassStatus/:id',
                 element: <UpdateCourseStatus></UpdateCourseStatus>,
+                loader: ({ params }) => fetch(`http://localhost:5000/updateCoursesStatus/${params.id}`)
+            },
+            {
+                path: 'denyClassStatus/:id',
+                element: <DenyCourseStatus></DenyCourseStatus>,
                 loader: ({ params }) => fetch(`http://localhost:5000/updateCoursesStatus/${params.id}`)
             },
             //Instructor Route

@@ -14,6 +14,7 @@ const Dashboard = () => {
     // const isInstructor = true;
     const [isInstructor] = useInstructors();
 
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -32,9 +33,12 @@ const Dashboard = () => {
 
                     {/* Sidebar content here */}
 
+
                     <div className="mb-10">
                         <Link className="text-center" to='/'><span className="font-bold text-4xl">AxiomTune.</span> <span className="font-bold">School</span></Link>
                     </div>
+
+
 
                     <div className="mb-7 mx-auto">
                         <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
@@ -94,6 +98,8 @@ const Dashboard = () => {
 
                         </div>
                     </div>
+
+
 
                 </ul>
 

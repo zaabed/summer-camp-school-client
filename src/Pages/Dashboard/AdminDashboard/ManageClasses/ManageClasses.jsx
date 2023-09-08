@@ -69,7 +69,7 @@ const ManageClasses = () => {
                                         <button className="btn btn-sm bg-yellow-600 text-white">APPROVE</button>
                                     </Link>
 
-                                    <Link to={`/dashboard/updateClassStatus/${item._id}`}>
+                                    <Link to={`/dashboard/denyClassStatus/${item._id}`}>
                                         <button className="btn btn-sm bg-yellow-600 text-white">DENY</button>
                                     </Link>
 

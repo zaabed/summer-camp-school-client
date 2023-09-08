@@ -30,6 +30,7 @@ const MyClasses = () => {
                         <tr>
                             <th>#</th>
                             <th>Image</th>
+                            <th>Course Name</th>
                             <th>Status</th>
                             <th>Enrolled Students</th>
                             <th>Feedback</th>
@@ -52,6 +53,7 @@ const MyClasses = () => {
                                     </div>
                                 </div>
                             </td>
+                            <td><p className="font-bold">{item.name}</p></td>
                             <td>
                                 <div className="btn-group">
                                     <button className="btn btn-sm bg-yellow-600 text-white">{item.status}</button>
