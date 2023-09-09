@@ -14,8 +14,8 @@ const DenyCourseStatus = () => {
     const onSubmit = data => {
         console.log(data);
 
-        const { status } = data;
-        const updateStatus = { status: status };
+        const { status, feedback } = data;
+        const updateStatus = { status: status, feedback: feedback };
 
         axiosSecure.put(`/denyCoursesStatus/${_id}`, updateStatus)
             .then(data => {
@@ -33,7 +33,7 @@ const DenyCourseStatus = () => {
 
     return (
         <div>
-            <h1 className="text-3xl font-semibold">Update Course Status</h1>
+            <h1 className="text-3xl font-semibold uppercase">Denied Course Status</h1>
 
             <div className="mt-5">
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -44,6 +44,13 @@ const DenyCourseStatus = () => {
                         <input defaultValue={status} type="text" placeholder="Course Status"
                             {...register("status", { required: true })}
                             className="input input-bordered w-full " />
+                    </div>
+
+                    <div className="form-control w-full ">
+                        <label className="label">
+                            <span className="label-text font-semibold">Denied Reason*</span>
+                        </label>
+                        <textarea placeholder="Denied Reason"  {...register("feedback", { required: true })} className=" textarea textarea-bordered textarea-lg w-full " ></textarea>
                     </div>
 
                     <input className="btn btn-sm mt-4" type="submit" value="Status Update" />

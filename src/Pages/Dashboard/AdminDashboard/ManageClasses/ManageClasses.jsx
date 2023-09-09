@@ -13,7 +13,7 @@ const ManageClasses = () => {
     })
 
     return (
-        <div className="w-full P-10">
+        <div className="w-full P-10 mb-10">
 
             <h1 className="text-3xl font-semibold">Show All Classes</h1>
 
@@ -31,7 +31,6 @@ const ManageClasses = () => {
                             <th>Price</th>
                             <th>Status</th>
                             <th>Action</th>
-                            <th>Feedback</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,15 +76,6 @@ const ManageClasses = () => {
 
                                 </div>
                             </td>
-
-                            <td>
-                                <div className="btn-group">
-                                    <Link to='/dashboard/adminFeedback'>
-                                        <button className="btn btn-sm bg-yellow-600 text-white">FEEDBACK</button>
-                                    </Link>
-                                </div>
-                            </td>
-
                         </tr>)}
 
                     </tbody>

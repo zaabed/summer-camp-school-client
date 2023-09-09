@@ -7,6 +7,7 @@ import useAuth from "../../../../hooks/useAuth";
 
 const MyClasses = () => {
 
+    //RECEIVE ALL INSTRUCTOR COURSES
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 
@@ -17,6 +18,13 @@ const MyClasses = () => {
             return res.data;
         }
     })
+
+
+    //RECEIVE ALL FEEDBACK
+
+    // const allFeedback = useLoaderData();
+    // console.log(allFeedback);
+
 
     return (
         <div className="w-full p-10">
@@ -60,7 +68,16 @@ const MyClasses = () => {
                                 </div>
                             </td>
                             <td><p className="font-bold">0 TODO</p></td>
-                            <td><button className="btn btn-sm bg-yellow-600 text-white">SEE FEEDBACK</button></td>
+                            <td>
+
+
+                                <Link to={`/dashboard/instructorFeedback/${item._id}`}>
+                                    <button className="btn btn-sm bg-yellow-600 text-white">SEE FEEDBACK</button>
+                                </Link>
+
+
+
+                            </td>
                             <td><Link to={`/dashboard/updateClass/${item._id}`}><button className="btn btn-ghost bg-yellow-600 text-white"><FaEdit></FaEdit></button></Link></td>
 
                         </tr>)}

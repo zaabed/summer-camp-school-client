@@ -20,10 +20,9 @@ import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
 import UpdateClass from "../Pages/Dashboard/InstructorDashboard/UpdateClass/UpdateClass";
 import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses/ManageClasses";
-import AdminFeedback from "../Pages/Dashboard/AdminDashboard/AdminFeedback/AdminFeedback";
 import UpdateCourseStatus from "../Pages/Dashboard/AdminDashboard/UpdateCourseStatus/UpdateCourseStatus";
 import DenyCourseStatus from "../Pages/Dashboard/AdminDashboard/UpdateCourseStatus/DenyCourseStatus";
-// import UpdateCourseStatus from "../Pages/Dashboard/InstructorDashboard/UpdateCourseStatus/UpdateCourseStatus";
+import SeeFeedback from "../Pages/Dashboard/InstructorDashboard/SeeFeedback/SeeFeedback";
 
 export const router = createBrowserRouter([
     {
@@ -81,10 +80,6 @@ export const router = createBrowserRouter([
                 element: <ManageClasses></ManageClasses>
             },
             {
-                path: 'adminFeedback',
-                element: <AdminFeedback></AdminFeedback>
-            },
-            {
                 path: 'updateClassStatus/:id',
                 element: <UpdateCourseStatus></UpdateCourseStatus>,
                 loader: ({ params }) => fetch(`http://localhost:5000/updateCoursesStatus/${params.id}`)
@@ -94,6 +89,7 @@ export const router = createBrowserRouter([
                 element: <DenyCourseStatus></DenyCourseStatus>,
                 loader: ({ params }) => fetch(`http://localhost:5000/updateCoursesStatus/${params.id}`)
             },
+
             //Instructor Route
             {
                 path: 'instructorHome',
@@ -110,6 +106,11 @@ export const router = createBrowserRouter([
             {
                 path: 'updateClass/:id',
                 element: <UpdateClass></UpdateClass>,
+                loader: ({ params }) => fetch(`http://localhost:5000/instructorCourses/${params.id}`)
+            },
+            {
+                path: 'instructorFeedback/:id',
+                element: <SeeFeedback></SeeFeedback>,
                 loader: ({ params }) => fetch(`http://localhost:5000/instructorCourses/${params.id}`)
             },
             //Student Route

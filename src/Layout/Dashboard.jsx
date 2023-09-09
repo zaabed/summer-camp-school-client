@@ -20,7 +20,6 @@ const Dashboard = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
 
-                {/* <h1 className="text-4xl font-bold">Welcome To Dashboard</h1> */}
                 {/* Page content here */}
                 <Outlet></Outlet>
 

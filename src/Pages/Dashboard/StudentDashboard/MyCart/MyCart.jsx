@@ -13,8 +13,9 @@ const MyCart = () => {
 
     //Find Total Cost
 
-    const totalPrice = cart.reduce((sum, course) => course.price + sum, 0);
-    const CoursePrice = parseFloat(totalPrice.toFixed(2));
+    const totalPrice = cart.reduce((sum, course) => parseFloat(course.price) + sum, 0);
+
+
 
     const handleDelete = (item) => {
         console.log('delete', item._id)
@@ -51,13 +52,10 @@ const MyCart = () => {
 
             <h1 className="text-3xl font-bold text-center uppercase mt-2">Here All Selected Courses</h1>
 
-            <div className="mt-10 mb-10">
-                {/* <h3 className="text2xl text-center">Name:{user?.displayName} Email:{user?.email}</h3> */}
-            </div>
 
-            <div className="uppercase flex justify-evenly font-semibold mb-10">
+            <div className="uppercase flex justify-evenly font-semibold mt-10 mb-10">
                 <h3 className="text-3xl">Total Orders: {cart.length}</h3>
-                <h3 className="text-3xl">Total Price: ${CoursePrice}</h3>
+                <h3 className="text-3xl">Total Price: ${totalPrice.toFixed(2)}</h3>
                 <Link to="/dashboard/payment">
                     <button className="btn btn-warning btn-sm"> PAY</button>
                 </Link>
