@@ -26,6 +26,7 @@ import SeeFeedback from "../Pages/Dashboard/InstructorDashboard/SeeFeedback/SeeF
 import EnrolledClasses from "../Pages/Dashboard/StudentDashboard/EnrolledClasses/EnrolledClasses";
 import ApprovedClasses from "../Pages/Dashboard/InstructorDashboard/ApprovedClasses/ApprovedClasses";
 import UpdateApprovedClass from "../Pages/Dashboard/InstructorDashboard/ApprovedClasses/UpdateApprovedClass";
+import Payment from "../Pages/Dashboard/PaymentDashboard/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -137,8 +138,12 @@ export const router = createBrowserRouter([
             {
                 path: 'enrolledClasses',
                 element: <EnrolledClasses></EnrolledClasses>
+            },
+            //Payment Route
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             }
-
         ]
     }
 ])
