@@ -23,6 +23,9 @@ import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses/Manag
 import UpdateCourseStatus from "../Pages/Dashboard/AdminDashboard/UpdateCourseStatus/UpdateCourseStatus";
 import DenyCourseStatus from "../Pages/Dashboard/AdminDashboard/UpdateCourseStatus/DenyCourseStatus";
 import SeeFeedback from "../Pages/Dashboard/InstructorDashboard/SeeFeedback/SeeFeedback";
+import EnrolledClasses from "../Pages/Dashboard/StudentDashboard/EnrolledClasses/EnrolledClasses";
+import ApprovedClasses from "../Pages/Dashboard/InstructorDashboard/ApprovedClasses/ApprovedClasses";
+import UpdateApprovedClass from "../Pages/Dashboard/InstructorDashboard/ApprovedClasses/UpdateApprovedClass";
 
 export const router = createBrowserRouter([
     {
@@ -113,6 +116,15 @@ export const router = createBrowserRouter([
                 element: <SeeFeedback></SeeFeedback>,
                 loader: ({ params }) => fetch(`http://localhost:5000/instructorCourses/${params.id}`)
             },
+            {
+                path: 'approvedClasses',
+                element: <ApprovedClasses></ApprovedClasses>
+            },
+            {
+                path: 'updateApprovedClass/:id',
+                element: <UpdateApprovedClass></UpdateApprovedClass>,
+                loader: ({ params }) => fetch(`http://localhost:5000/approvedCourses/${params.id}`)
+            },
             //Student Route
             {
                 path: 'userHome',
@@ -122,6 +134,10 @@ export const router = createBrowserRouter([
                 path: 'myCart',
                 element: <MyCart></MyCart>
             },
+            {
+                path: 'enrolledClasses',
+                element: <EnrolledClasses></EnrolledClasses>
+            }
 
         ]
     }

@@ -71,9 +71,6 @@ const ManageClasses = () => {
                                     <Link to={`/dashboard/denyClassStatus/${item._id}`}>
                                         <button className="btn btn-sm bg-yellow-600 text-white">DENY</button>
                                     </Link>
-
-
-
                                 </div>
                             </td>
                         </tr>)}

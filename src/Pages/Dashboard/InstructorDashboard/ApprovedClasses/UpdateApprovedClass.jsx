@@ -1,31 +1,30 @@
-import { useForm } from "react-hook-form";
-import useAuth from "../../../../hooks/useAuth";
 import { useLoaderData } from "react-router-dom";
-import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { useForm } from "react-hook-form";
+// import useAuth from "../../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
+const UpdateApprovedClass = () => {
 
-const UpdateClass = () => {
-
-    const updateClass = useLoaderData();
-    const { _id, name, price, seats, image } = updateClass;
+    const approvedClassUpdate = useLoaderData();
+    // console.log(approvedClassUpdate);
+    const { _id, name, price, seats, image, status, email, instructor } = approvedClassUpdate;
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit } = useForm();
-    const { user } = useAuth();
+    // const { user } = useAuth();
 
     const onSubmit = data => {
 
-        const { name, price, seats } = data;
-        const updateClass = { name: name, seats: parseFloat(seats), price: parseFloat(price) };
-        console.log(updateClass);
-        axiosSecure.put(`/instructorCourses/${_id}`, updateClass)
+        const { name, price, seats, image, status, email, instructor } = data;
+        const updateApprovedClass = { email: email, instructor: instructor, name: name, seats: parseFloat(seats), price: parseFloat(price), image: image, status: status };
+        axiosSecure.put(`/approvedCourses/${_id}`, updateApprovedClass)
             .then(data => {
                 if (data.data.modifiedCount > 0) {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'class Updated Successfully',
+                        title: 'Approved Class Updated Successfully',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -54,8 +53,8 @@ const UpdateClass = () => {
                             <label className="label">
                                 <span className="label-text font-semibold">Instructor name*</span>
                             </label>
-                            <input defaultValue={user?.displayName} type="text" placeholder="instructorName"
-                                {...register("instructorName", { required: true })}
+                            <input defaultValue={instructor} type="text" placeholder="instructorName"
+                                {...register("instructor", { required: true })}
                                 className="input input-bordered w-full " />
                         </div>
 
@@ -63,8 +62,8 @@ const UpdateClass = () => {
                             <label className="label">
                                 <span className="label-text font-semibold">Instructor email*</span>
                             </label>
-                            <input defaultValue={user?.email} type="text" placeholder="instructorEmail"
-                                {...register("instructorEmail", { required: true })}
+                            <input defaultValue={email} type="text" placeholder="instructorEmail"
+                                {...register("email", { required: true })}
                                 className="input input-bordered w-full " />
                         </div>
                     </div>
@@ -96,25 +95,16 @@ const UpdateClass = () => {
                                 className="input input-bordered w-full " />
                         </div>
 
-                        {/* <div className="form-control w-full ml-4">
+                        <div className="form-control w-full ml-4">
                             <label className="label">
                                 <span className="label-text font-semibold">Status*</span>
                             </label>
-                            <input defaultValue={'Pending'} type="text" placeholder="Status"
+                            <input defaultValue={status} type="text" placeholder="Status"
                                 {...register("status", { required: true })}
                                 className="input input-bordered w-full " />
-                        </div> */}
+                        </div>
 
                     </div>
-
-                    {/* <div className="form-control w-full ">
-                        <label className="label">
-                            <span className="label-text">Class Image*</span>
-                        </label>
-                        <input defaultValue={image} type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full max-w-xs" />
-                    </div> */}
-
-
 
                     <input className="btn btn-sm mt-4" type="submit" value="Update Class" />
                 </form>
@@ -123,4 +113,4 @@ const UpdateClass = () => {
     );
 };
 
-export default UpdateClass;
+export default UpdateApprovedClass;

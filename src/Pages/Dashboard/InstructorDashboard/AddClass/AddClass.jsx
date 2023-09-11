@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import './AddClass.css';
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 // console.log(img_hosting_token)
@@ -49,7 +50,7 @@ const AddClass = () => {
     }
 
     return (
-        <div className="w-full p-10">
+        <div className="w-full p-10 add-bg">
             <h1 className="text-3xl font-semibold">Add a Class</h1>
 
             <div className="mt-5">

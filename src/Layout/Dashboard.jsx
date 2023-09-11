@@ -72,12 +72,14 @@ const Dashboard = () => {
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/instructorHome'>Instructor Home</Link></li>
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/addClass'>Add a Class</Link></li>
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/myClasses'>My Classes</Link></li>
+                                            <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/approvedClasses'>Approved Classes</Link></li>
 
                                         </> :
                                         <>
 
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/userHome'>Student Dashboard</Link></li>
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/myCart'> Selected Classes</Link></li>
+                                            <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/enrolledClasses'>Enrolled Classes</Link></li>
 
                                         </>
                             }
