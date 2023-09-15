@@ -21,7 +21,7 @@ const ApprovedClasses = () => {
     return (
         <div className="w-full p-10">
 
-            <h1 className="text-3xl font-semibold">Show My Classes</h1>
+            <h1 className="text-3xl font-semibold text-center mb-10">Show My Approved Classes</h1>
 
             <div>
                 <table className="table">

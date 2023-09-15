@@ -78,7 +78,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'manageClasses',
-                element: <ManageClasses></ManageClasses>
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             {
                 path: 'updateClassStatus/:id',
@@ -116,7 +116,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'approvedClasses',
-                element: <ApprovedClasses></ApprovedClasses>
+                element: <InstructorRoute><ApprovedClasses></ApprovedClasses></InstructorRoute>
             },
             {
                 path: 'updateApprovedClass/:id',
