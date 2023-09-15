@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-// import './CheckoutForm.css'
+import moment from "moment/moment";
 
 
 const CheckoutForm = ({ cart, price }) => {
+
 
     const stripe = useStripe();
     const elements = useElements();
@@ -72,8 +73,22 @@ const CheckoutForm = ({ cart, price }) => {
         }
 
         setProcessing(false);
+
+
+
+
+
+        // approvedClasses.map(cls => {
+        //     console.log(cls)
+        // })
+
+
+
+
+
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
+
 
             //save payment information on database
 
@@ -83,7 +98,7 @@ const CheckoutForm = ({ cart, price }) => {
                 email: user?.email,
                 transactionId: paymentIntent.id,
                 price,
-                date: new Date(),
+                date: moment().format('MMMM D, YYYY h:mm A'),
                 quantity: cart.length,
                 cart: cart,
                 courseCartId: cart.map(item => item._id),

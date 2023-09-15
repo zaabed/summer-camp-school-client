@@ -6,7 +6,6 @@ import Login from "../Pages/Login/Login";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import PrivateRoute from "./PrivateRoute";
-import Secret from "../Pages/Shared/Secret/Secret";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/StudentDashboard/MyCart/MyCart";
@@ -27,6 +26,7 @@ import EnrolledClasses from "../Pages/Dashboard/StudentDashboard/EnrolledClasses
 import ApprovedClasses from "../Pages/Dashboard/InstructorDashboard/ApprovedClasses/ApprovedClasses";
 import UpdateApprovedClass from "../Pages/Dashboard/InstructorDashboard/ApprovedClasses/UpdateApprovedClass";
 import Payment from "../Pages/Dashboard/PaymentDashboard/Payment";
+import PaymentHistory from "../Pages/Dashboard/StudentDashboard/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
     {
@@ -57,10 +57,7 @@ export const router = createBrowserRouter([
                 path: '/aboutUs',
                 element: <AboutUs></AboutUs>
             },
-            {
-                path: '/secret',
-                element: <PrivateRoute><Secret></Secret></PrivateRoute>
-            }
+
         ]
     },
 
@@ -138,6 +135,10 @@ export const router = createBrowserRouter([
             {
                 path: 'enrolledClasses',
                 element: <EnrolledClasses></EnrolledClasses>
+            },
+            {
+                path: 'paymentHistory',
+                element: <PaymentHistory></PaymentHistory>
             },
             //Payment Route
             {

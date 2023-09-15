@@ -5,14 +5,6 @@ import ShowCourses from "./ShowCourses";
 
 const Classes = () => {
 
-    //TODO
-    // const [axiosSecure] = useAxiosSecure();
-
-    // const { data: classes = [] } = useQuery(['classes'], async () => {
-    //     const res = await axiosSecure.get('/classes');
-    //     return res.data;
-    // })
-
     const [axiosSecure] = useAxiosSecure();
 
     const { data: classes = [] } = useQuery(['approvedCourses'], async () => {
@@ -21,9 +13,9 @@ const Classes = () => {
     })
 
     return (
-        <div className="mt-20">
+        <div className="mt-0">
             <h1 className="text-4xl text-center font-bold uppercase">Our Courses</h1>
-            <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-y-24  mt-5">
+            <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-y-24  mt-20 ">
                 {
                     classes.map(cls => <ShowCourses
 

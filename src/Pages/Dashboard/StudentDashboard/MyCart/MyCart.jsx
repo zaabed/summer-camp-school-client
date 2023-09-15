@@ -57,7 +57,7 @@ const MyCart = () => {
                 <h3 className="text-3xl">Total Orders: {cart.length}</h3>
                 <h3 className="text-3xl">Total Price: ${totalPrice.toFixed(2)}</h3>
                 <Link to="/dashboard/payment">
-                    <button className="btn btn-warning btn-sm"> PAY</button>
+                    <button className=" btn-sm    btn btn-outline border-0 border-b-4  bg-orange-300"> PAY</button>
                 </Link>
             </div>
 

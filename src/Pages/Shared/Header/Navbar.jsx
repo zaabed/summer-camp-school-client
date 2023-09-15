@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { FaShoppingCart } from 'react-icons/fa';
 import useCart from "../../../hooks/useCart";
-// import logo from '../../../assets/images/logo.jpg';
 
 
 const Navbar = () => {
@@ -17,28 +16,27 @@ const Navbar = () => {
     }
 
     const navOptions = <>
-        < li className="font-bold"> <Link to='/'>Home</Link></li>
-        < li className="font-bold"> <Link to='/instructors'>Instructors</Link></li>
-        < li className="font-bold"> <Link to='/classes'>Classes</Link></li>
-        < li className="font-bold"> <Link to='/aboutUs'>About Us</Link></li>
-        < li className="font-bold"> <Link to='/secret'>Secret</Link></li>
+        < li className="font-bold "> <Link to='/'>Home</Link></li>
+        < li className="font-bold "> <Link to='/instructors'>Instructors</Link></li>
+        < li className="font-bold "> <Link to='/classes'>Classes</Link></li>
+        < li className="font-bold "> <Link to='/aboutUs'>About Us</Link></li>
     </>
 
     return (
         <div>
-            <div className="navbar bg-emerald-100 ">
+            <div className=" navbar bg-orange-100 fixed z-10  ">
+
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ">
                             {navOptions}
                         </ul>
                     </div>
-                    {/* <Link to='/'><img className=" rounded-sm h-12 w-24" src={logo} alt="" /></Link> */}
-                    {/* <Link to='/'><h3 className="text-3xl font-semibold">AxiomTune</h3></Link> */}
-                    <Link className="text-center" to='/'><span className="font-bold text-4xl">AxiomTune.</span> <span className="font-bold">School</span></Link>
+
+                    <Link className="text-center" to='/'><span className="font-bold text-4xl ">AxiomTune.</span> <span className="font-bold">School</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -77,11 +75,11 @@ const Navbar = () => {
                                 </div>
                             </div>
 
-                            <button onClick={handleLogOut} className="btn btn-primary">Logout</button>
+                            <button onClick={handleLogOut} className="btn btn-outline border-0 border-b-4  bg-orange-200">Logout</button>
 
                         </> :
                             <>
-                                <Link to='/login'><button className="btn btn-primary">Login</button>
+                                <Link to='/login'><button className="btn btn-outline border-0 border-b-4  bg-orange-200">Login</button>
                                 </Link>
                             </>
 

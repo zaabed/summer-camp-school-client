@@ -1,32 +1,38 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import ShowTeachers from "./ShowTeachers";
+import { useQuery } from "@tanstack/react-query";
+
 
 
 const PopularTeachers = () => {
 
-    const [teachers, setTeachers] = useState();
+    const { data: users = [] } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/users');
+            return res.json();
+        }
+    })
 
-    useEffect(() => {
-        fetch('http://localhost:5000/teachers')
-            .then(res => res.json())
-            .then(data => {
-                setTeachers(data);
-            })
-    }, [])
+    const instructors = users.filter(instructor => instructor.role === 'instructor');
 
     return (
-        <div className="mt-20">
-            <h1 className="text-4xl text-center font-bold uppercase">Certified Teachers</h1>
-            <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-y-24  mt-5">
-                {teachers &&
-                    teachers.map(teacher => <ShowTeachers
+        <div className="mt-20 mx-auto">
+            <h1 className="text-4xl text-center font-bold uppercase mb-10">Certified Teachers</h1>
+            <div className="grid grid-cols-1 lg:grid-cols-3  gap-y-24 justify-items-center mt-10">
 
-                        key={teacher._id}
-                        teacher={teacher}
+                {
+                    instructors.map(instr => <ShowTeachers
+
+                        key={instr._id}
+                        instr={instr}
 
                     ></ShowTeachers>)
                 }
+
             </div>
+
+
         </div>
     );
 };

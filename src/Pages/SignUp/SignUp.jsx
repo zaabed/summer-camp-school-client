@@ -24,7 +24,7 @@ const SignUp = () => {
 
                         //save user information on mongodb
 
-                        const saveUser = { name: data.name, email: data.email }
+                        const saveUser = { name: data.name, email: data.email, image: data.photoURL }
 
                         fetch('http://localhost:5000/users', {
                             method: 'POST',

@@ -32,6 +32,9 @@ const ApprovedClasses = () => {
                             <th>Image</th>
                             <th>Course Name</th>
                             <th>Status</th>
+                            <th>Available_seats</th>
+                            <th>Enrolled Students</th>
+                            <th>Remaining_seats</th>
                             <th>Update</th>
                         </tr>
                     </thead>
@@ -57,7 +60,9 @@ const ApprovedClasses = () => {
                                     <button className="btn btn-sm bg-yellow-600 text-white">{item.status}</button>
                                 </div>
                             </td>
-
+                            <td><b>{item.seats}</b></td>
+                            <td><b>TODO</b></td>
+                            <td><b>TODO</b></td>
                             <td><Link to={`/dashboard/updateApprovedClass/${item._id}`}><button className="btn btn-ghost bg-yellow-600 text-white"><FaEdit></FaEdit></button></Link></td>
 
                         </tr>)}

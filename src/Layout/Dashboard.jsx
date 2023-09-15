@@ -23,12 +23,12 @@ const Dashboard = () => {
                 {/* Page content here */}
                 <Outlet></Outlet>
 
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden mt-20">Open drawer</label>
+                <label htmlFor="my-drawer-2" className="btn btn-outline border-0 border-b-4 bg-orange-200 drawer-button lg:hidden mt-20">Open drawer</label>
 
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                <ul className="menu p-4 w-80 min-h-full bg-orange-100 text-base-content">
 
                     {/* Sidebar content here */}
 
@@ -54,7 +54,7 @@ const Dashboard = () => {
 
 
                     <div className="flex flex-col w-full border-opacity-50 ">
-                        <div className="grid gap-y-2 p-10 card bg-base-300 rounded-box place-items-center">
+                        <div className="grid gap-y-2 p-10 card bg-orange-100 rounded-box place-items-center">
 
                             {/* USE NESTED TERNARY OPERATOR */}
 
@@ -69,7 +69,7 @@ const Dashboard = () => {
                                     </> : isInstructor ?
                                         <>
 
-                                            <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/instructorHome'>Instructor Home</Link></li>
+                                            {/* <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/instructorHome'>Instructor Home</Link></li> */}
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/addClass'>Add a Class</Link></li>
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/myClasses'>My Classes</Link></li>
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/approvedClasses'>Approved Classes</Link></li>
@@ -77,9 +77,10 @@ const Dashboard = () => {
                                         </> :
                                         <>
 
-                                            <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/userHome'>Student Dashboard</Link></li>
+                                            {/* <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/userHome'>Student Dashboard</Link></li> */}
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/myCart'> Selected Classes</Link></li>
                                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/enrolledClasses'>Enrolled Classes</Link></li>
+                                            <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/dashboard/paymentHistory'>Payment History</Link></li>
 
                                         </>
                             }
@@ -90,7 +91,7 @@ const Dashboard = () => {
                         <div className="divider">OR</div>
 
 
-                        <div className="grid gap-y-2 p-10 card bg-base-300 rounded-box place-items-center">
+                        <div className="grid gap-y-2 p-10 card bg-orange-100 rounded-box place-items-center">
 
                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/'><FaHome></FaHome>Home</Link></li>
                             <li ><Link className="border border-sky-500 px-10 rounded-lg p-2 pe-10 " to='/classes'><FaHome></FaHome>All Classes</Link></li>

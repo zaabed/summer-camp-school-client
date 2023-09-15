@@ -12,6 +12,7 @@ const ShowCourses = ({ cls }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
+
     const handleAddToCart = cls => {
         console.log(cls);
         if (user && user.email) {
@@ -57,13 +58,15 @@ const ShowCourses = ({ cls }) => {
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure><img className="h-96 w-96" src={image} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title font-bold text-2xl">{name}</h2>
-                <h6 className="font-bold ">Instructor: {instructor}</h6>
-                <h6 className="font-bold">available Seats : {seats}</h6>
-                <h6 className="font-bold">Price : ${price}</h6>
+            <div className="card-body bg-orange-100">
+                <div className="h-40 ">
+                    <h2 className="card-title font-bold text-2xl">{name}</h2>
+                    <h6 className="font-bold ">Instructor: {instructor}</h6>
+                    <h6 className="font-bold">available Seats : {seats}</h6>
+                    <h6 className="font-bold">Price : ${price}</h6>
+                </div>
                 <div className="card-actions justify-end">
-                    <button onClick={() => handleAddToCart(cls)} className="btn btn-primary uppercase">Select</button>
+                    <button onClick={() => handleAddToCart(cls)} className="btn btn-outline border-0 border-b-4 mt-4 bg-orange-300">Select</button>
                 </div>
             </div>
         </div>
