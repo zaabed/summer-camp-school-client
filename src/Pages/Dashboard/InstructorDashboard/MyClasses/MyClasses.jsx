@@ -20,12 +20,6 @@ const MyClasses = () => {
     })
 
 
-    //RECEIVE ALL FEEDBACK
-
-    // const allFeedback = useLoaderData();
-    // console.log(allFeedback);
-
-
     return (
         <div className="w-full p-10">
 

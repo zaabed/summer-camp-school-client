@@ -8,11 +8,9 @@ import Swal from "sweetalert2";
 const UpdateApprovedClass = () => {
 
     const approvedClassUpdate = useLoaderData();
-    // console.log(approvedClassUpdate);
     const { _id, name, price, seats, image, status, email, instructor } = approvedClassUpdate;
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit } = useForm();
-    // const { user } = useAuth();
 
     const onSubmit = data => {
 

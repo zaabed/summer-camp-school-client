@@ -2,22 +2,17 @@ import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-// import useAuth from "../../../../hooks/useAuth";
 
 
 const UpdateCourseStatus = () => {
 
-    // const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const courseStatus = useLoaderData();
-    // console.log(courseStatus);
-    // const { _id, status } = courseStatus;
     const { name, price, seats, status, _id, instructor, email, image } = courseStatus;
 
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        // console.log(data);
 
         const { email, image, instructor, name, price, seats, status } = data;
         const updateStatus = { status: status, email: email, image: image, instructor: instructor, name: name, price: price, seats: seats };
@@ -56,23 +51,6 @@ const UpdateCourseStatus = () => {
 
     return (
         <div>
-            {/* <h1 className="text-3xl font-semibold">Update Course Status</h1> */}
-
-            {/* <div className="mt-5">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="form-control w-full ">
-                        <label className="label">
-                            <span className="label-text font-semibold">Course Status*</span>
-                        </label>
-                        <input defaultValue={status} type="text" placeholder="Course Status"
-                            {...register("status", { required: true })}
-                            className="input input-bordered w-full " />
-                    </div>
-
-                    <input className="btn btn-sm mt-4" type="submit" value="Status Update" />
-
-                </form>
-            </div> */}
 
 
             <h1 className="text-4xl font-bold uppercase">Approved Course Info And Update Course Status</h1>

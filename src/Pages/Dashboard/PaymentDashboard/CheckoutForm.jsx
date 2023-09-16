@@ -76,16 +76,6 @@ const CheckoutForm = ({ cart, price }) => {
 
 
 
-
-
-        // approvedClasses.map(cls => {
-        //     console.log(cls)
-        // })
-
-
-
-
-
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
 

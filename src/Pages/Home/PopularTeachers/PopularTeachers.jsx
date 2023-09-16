@@ -15,14 +15,15 @@ const PopularTeachers = () => {
     })
 
     const instructors = users.filter(instructor => instructor.role === 'instructor');
+    const displayInstructors = instructors.slice(0, 6);
 
     return (
         <div className="mt-20 mx-auto">
-            <h1 className="text-4xl text-center font-bold uppercase mb-10">Certified Teachers</h1>
+            <h1 className="text-4xl text-center font-bold uppercase mb-10">OUR POPULAR TEACHER</h1>
             <div className="grid grid-cols-1 lg:grid-cols-3  gap-y-24 justify-items-center mt-10">
 
                 {
-                    instructors.map(instr => <ShowTeachers
+                    displayInstructors.map(instr => <ShowTeachers
 
                         key={instr._id}
                         instr={instr}

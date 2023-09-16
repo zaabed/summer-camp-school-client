@@ -1,6 +1,5 @@
 import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../../hooks/useCart";
-// import useAuth from "../../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -8,7 +7,6 @@ import Swal from "sweetalert2";
 const MyCart = () => {
 
     const [cart, refetch] = useCart();
-    // const { user } = useAuth();
 
 
     //Find Total Cost

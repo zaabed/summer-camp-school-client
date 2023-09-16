@@ -96,25 +96,7 @@ const UpdateClass = () => {
                                 className="input input-bordered w-full " />
                         </div>
 
-                        {/* <div className="form-control w-full ml-4">
-                            <label className="label">
-                                <span className="label-text font-semibold">Status*</span>
-                            </label>
-                            <input defaultValue={'Pending'} type="text" placeholder="Status"
-                                {...register("status", { required: true })}
-                                className="input input-bordered w-full " />
-                        </div> */}
-
                     </div>
-
-                    {/* <div className="form-control w-full ">
-                        <label className="label">
-                            <span className="label-text">Class Image*</span>
-                        </label>
-                        <input defaultValue={image} type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full max-w-xs" />
-                    </div> */}
-
-
 
                     <input className="btn btn-sm mt-4" type="submit" value="Update Class" />
                 </form>
