@@ -20,7 +20,7 @@ const ShowClasses = ({ cls }) => {
         console.log(cls);
         if (user && user.email) {
             const orderCourseCartItem = { courseItemId: _id, seats, image, instructor, name, price, email: user.email };
-            fetch('http://localhost:5000/carts', {
+            fetch('https://summer-school-camp-server-psi.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
