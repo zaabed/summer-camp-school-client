@@ -83,12 +83,12 @@ export const router = createBrowserRouter([
             {
                 path: 'updateClassStatus/:id',
                 element: <UpdateCourseStatus></UpdateCourseStatus>,
-                loader: ({ params }) => fetch(`http://localhost:5000/updateCoursesStatus/${params.id}`)
+                loader: ({ params }) => fetch(`https://summer-school-camp-server-sage.vercel.app/updateCoursesStatus/${params.id}`)
             },
             {
                 path: 'denyClassStatus/:id',
                 element: <DenyCourseStatus></DenyCourseStatus>,
-                loader: ({ params }) => fetch(`http://localhost:5000/updateCoursesStatus/${params.id}`)
+                loader: ({ params }) => fetch(`https://summer-school-camp-server-sage.vercel.app/updateCoursesStatus/${params.id}`)
             },
 
             //Instructor Route
@@ -107,12 +107,12 @@ export const router = createBrowserRouter([
             {
                 path: 'updateClass/:id',
                 element: <UpdateClass></UpdateClass>,
-                loader: ({ params }) => fetch(`http://localhost:5000/instructorCourses/${params.id}`)
+                loader: ({ params }) => fetch(`https://summer-school-camp-server-sage.vercel.app/instructorCourses/${params.id}`)
             },
             {
                 path: 'instructorFeedback/:id',
                 element: <SeeFeedback></SeeFeedback>,
-                loader: ({ params }) => fetch(`http://localhost:5000/instructorCourses/${params.id}`)
+                loader: ({ params }) => fetch(`https://summer-school-camp-server-sage.vercel.app/instructorCourses/${params.id}`)
             },
             {
                 path: 'approvedClasses',
@@ -121,7 +121,7 @@ export const router = createBrowserRouter([
             {
                 path: 'updateApprovedClass/:id',
                 element: <UpdateApprovedClass></UpdateApprovedClass>,
-                loader: ({ params }) => fetch(`http://localhost:5000/approvedCourses/${params.id}`)
+                loader: ({ params }) => fetch(`https://summer-school-camp-server-sage.vercel.app/approvedCourses/${params.id}`)
             },
             //Student Route
             {
