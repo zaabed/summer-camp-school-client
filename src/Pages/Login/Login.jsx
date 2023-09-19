@@ -22,7 +22,7 @@ const Login = () => {
 
                 const saveUser = { name: loggedUser.displayName, email: loggedUser.email };
 
-                fetch('https://summer-school-camp-server-psi.vercel.app/users', {
+                fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

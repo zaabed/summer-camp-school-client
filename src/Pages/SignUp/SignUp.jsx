@@ -26,7 +26,7 @@ const SignUp = () => {
 
                         const saveUser = { name: data.name, email: data.email, image: data.photoURL }
 
-                        fetch('https://summer-school-camp-server-psi.vercel.app/users', {
+                        fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -91,8 +91,6 @@ const SignUp = () => {
                         {errors.password?.type === 'pattern' && <span className="text-red-600">Password must have one upper case, one lower case, one special characters and number</span>}
 
                     </div>
-
-                    {/* <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4" type="password" placeholder="Confirm Password" /> */}
 
                     <div>
                         <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4" type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" />

@@ -14,7 +14,7 @@ const AllUsers = () => {
     })
 
     const handleMakeAdmin = user => {
-        fetch(`https://summer-school-camp-server-psi.vercel.app/users/admin/${user._id}`, {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -34,7 +34,7 @@ const AllUsers = () => {
     }
 
     const handleMakeInstructor = user => {
-        fetch(`https://summer-school-camp-server-psi.vercel.app/users/instructor/${user._id}`, {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -65,7 +65,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://summer-school-camp-server-psi.vercel.app/users/${user._id}`, {
+                fetch(`http://localhost:5000/users/${user._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
