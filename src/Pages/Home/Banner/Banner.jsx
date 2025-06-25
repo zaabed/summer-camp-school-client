@@ -53,7 +53,10 @@ const Banner = () => {
                     <div className='shadow-md rounded-md p-5 bg-orange-200'>
                         <img className='h-24' src={education} alt="" />
                         <h3 className="text-3xl font-bold">Special Education</h3>
-                        <p>Special Education is a field dedicated to supporting individuals with diverse learning needs, including those with disabilities, learning differences, and special requirements. </p>
+                        <p>Special Education supports students with disabilities or learning differences.
+                            It provides extra help so they can learn in ways that suit them best.
+                            The goal is to help every student succeed in school.
+                        </p>
                     </div>
                     <div className='shadow-md rounded-md p-5 bg-sky-200'>
                         <img className='h-24' src={library} alt="" />
